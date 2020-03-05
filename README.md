@@ -1,12 +1,4 @@
-# CONTENTS OF THIS FILE
----------------------
-   
- * Introduction
- * Requirements
- * Configuration
-
-
-# INTRODUCTION
+# REDDIT SUBMISSION SCRAPER
 ------------
 
 This script scrapes Reddit submissions in real-time, from a list of specified subreddits, and gets updated
