@@ -2,10 +2,7 @@
 ------------
 
 This script scrapes Reddit submissions in real-time, from a list of specified subreddits, and gets updated
-values for the fields of each submission at specified time intervals. The script creates two CSV files. 
-The first file, called "stream_[date]_[time]" contains every unique submission created while the script was 
-running, on a separate row. The second file, called "score_[date]_[time]", contains a separate row for each 
-submission in the first file, at a given time interval.
+values for the fields of each submission at specified time intervals. The script creates two CSV files. The first file contains every unique submission created while the script was running, each on a separate row. The second file contains every submission in the first file, with separate rows for the updated values at each time interval (i.e, score, num_comments, etc.).
 
 
 # REQUIREMENTS
