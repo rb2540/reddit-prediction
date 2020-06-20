@@ -1,3 +1,4 @@
+   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rb2540/reddit-prediction/master?urlpath=https%3A%2F%2Fgithub.com%2Frb2540%2Freddit-prediction%2Fblob%2Fmaster%2FRADSv6.0.ipynb)
 # REDDIT SUBMISSION SCRAPER
 ------------
 
@@ -48,6 +49,6 @@ requests. The PRAW's documentation suggest the following format for user agent:
 
    C:\>python3 Reddit_Submission_Scraper.py AskReddit+Pics+Gifs+Poliitics
    
-   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rb2540/reddit-prediction/master?urlpath=https%3A%2F%2Fgithub.com%2Frb2540%2Freddit-prediction%2Fblob%2Fmaster%2FRADSv6.0.ipynb)
+
 
 
