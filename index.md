@@ -1,37 +1,54 @@
-## Welcome to GitHub Pages
+   [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rb2540/reddit-prediction/master?urlpath=https%3A%2F%2Fgithub.com%2Frb2540%2Freddit-prediction%2Fblob%2Fmaster%2FRADSv6.0.ipynb)
+# REDDIT SUBMISSION SCRAPER
+------------
 
-You can use the [editor on GitHub](https://github.com/rossbern/reddit-scraper/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This script scrapes Reddit submissions in real-time, from a list of specified subreddits, and gets updated
+values for the fields of each submission at specified time intervals. The script creates two CSV files. The first file contains every unique submission created while the script was running, each on a separate row. The second file contains every submission in the first file, with separate rows for the updated values at each time interval (i.e, score, num_comments, etc.).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+# REQUIREMENTS
+------------
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This script was written in Python 3.6 and utilizes PRAW, the Python Reddit API Wrapper. PRAW can be installed
+from the command line with pip.
 
-```markdown
-Syntax highlighted code block
+A consistent internet connection must be maintained at all times while running this script. Re-running will 
+cause the script to start over and create two new csv files. It will not continue checking submissions from a 
+previous run for which it did not collect the full 24-hours of data.
 
-# Header 1
-## Header 2
-### Header 3
+Accessing the Reddit API and using this script requires a Reddit account. After making a reddit account, you
+must also create a Reddit application by going to the "apps" tab in Preferences. The application-type selected
+should be "script". Once your app is created, the following values must be used for the script:
 
-- Bulleted
-- List
+* client_id
+* client_secret
+* username
+* password
 
-1. Numbered
-2. List
+These values are entered when creating a Reddit instance, as in the load_reddit() function in this script. 
+A "user_agent" must also entered. This is a unique identifier that helps Reddit determine the source of network
+requests. The PRAW's documentation suggest the following format for user agent:
 
-**Bold** and _Italic_ and `Code` text
+* windows:myredditapp:v1.2.3 (by /u/RedditUser)
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+# CONFIGURATION
+-------------
+ 
+ * Configure the reddit instance using the above instructions
 
-### Jekyll Themes
+ * If different time intervals for checking submissions are required, adjust the times in the 'mins_list' 
+   variable as needed
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rossbern/reddit-scraper/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+ * Selecting the subreddits to scrape can be specified as a command-line argument, or hard-coded. This is 
+   set in main(). The script already uses hard-coded subreddits. Simply change the 'subred' string to contain
+   subreddits you wish to scrape, with each subreddit separated by a '+'. The command-line method is included
+   but commented out. To use this method, simply un-comment the line '#subred = sys.argv[1]' and remove the 
+   following line. The subreddits will then be selected from the command-line when running the script.   
+   For example:
 
-### Support or Contact
+   C:\>python3 Reddit_Submission_Scraper.py AskReddit+Pics+Gifs+Poliitics
+   
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+
